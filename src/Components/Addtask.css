@@ -296,6 +296,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #done:hover{
     background-color: rgb(250, 223, 223);
 }
+#done:active{
+    background-color: rgb(102, 5, 102);
+    color: white;
+}
 #filter p{
     display: flex;
     align-items: center;
