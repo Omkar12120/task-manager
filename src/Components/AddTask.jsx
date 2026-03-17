@@ -106,7 +106,7 @@ const AddTask = () => {
           id='date'
            />
           <div id="button">
-            <button type='Submit' id='submit' >Add task</button>
+            <button type='Submit' id='submit' >Add Task</button>
             <button onClick={()=> setShow(false)} id='cancel'>Cancel</button>
           </div>
         </form>
@@ -118,11 +118,11 @@ const AddTask = () => {
       <div id='status'>
         <div id='filter'><p> <i><CiFilter /></i>Filter by status:</p></div>
         <div>
-        <button onClick={() => setStatus("all")} id='all'>All({task.length})</button>
-          <button onClick={() => setStatus("not started")} id='not'>Not started({task.filter(t => t.status === "not started").length})</button>
-          <button onClick={() => setStatus("in progress")} id='in'>In progress({task.filter(t => t.status === "in progress").length})</button>
-          <button onClick={() => setStatus("completed")} id='comp'>Completed({task.filter(t => t.status === "completed").length})</button>
-          <button onClick={() => setStatus("done")} id='done'>Done({task.filter(t => t.status === "done").length})</button>
+        <button onClick={() => setStatus("all")}className={status === "all" ? "active-btn-all" : ""} id='all'>All({task.length})</button>
+          <button onClick={() => setStatus("not started")}className={status === "not started" ? "active-btn-not" : ""} id='not' >Not started({task.filter(t => t.status === "not started").length})</button>
+          <button onClick={() => setStatus("in progress")}className={status === "in progress" ? "active-btn-in" : ""} id='in'>In progress({task.filter(t => t.status === "in progress").length})</button>
+          <button onClick={() => setStatus("completed")}className={status === "completed" ? "active-btn-comp" : ""} id='comp'>Completed({task.filter(t => t.status === "completed").length})</button>
+          <button onClick={() => setStatus("done")}className={status === "done" ? "active-btn-done" : ""} id='done'>Done({task.filter(t => t.status === "done").length})</button>
         </div>
       </div>
       {filterTask.map((t)=>(
@@ -141,6 +141,35 @@ const AddTask = () => {
           </div>
         </div>
       ))}
+      {filterTask.length === 0 &&(
+        <div id='empty'>
+          <i><GoTasklist /></i>
+          <h3>No task found</h3>
+          <p>No task with the status "{status}"</p>
+        </div>
+      )}
+      <div id='stats'>
+        <div className='stat-card'>
+          <h3>{task.length}</h3>
+          <p>Total task</p>
+        </div>
+        <div className='stat-card'>
+          <h3 id='stat-not-started'>{task.filter(t => t.status === "not started").length}</h3>
+          <p>Not started</p>
+        </div>
+        <div className='stat-card'>
+          <h3 id='stat-progress'>{task.filter(t => t.status === "in progress").length}</h3>
+          <p>In progress</p>
+        </div>
+        <div className='stat-card'>
+          <h3 id='stat-completed'>{task.filter(t => t.status === "completed").length}</h3>
+          <p>Completed</p>
+        </div>
+        <div className='stat-card'>
+          <h3 id='stat-done'>{task.filter(t => t.status === "done").length}</h3>
+          <p>Done</p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -231,17 +231,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width:70px;
     height: 40px;
     border-radius: 10px;
-    border:1px solid black;
+    border:1px solid rgb(255, 255, 255);
     margin: 10px;
     cursor:pointer;
-    background-color: rgb(11, 11, 11);
-    color: white;
+    background-color: rgb(225, 223, 223);
+    color: rgb(106, 106, 106);
 }
 #not{
     width: 130px;
     height: 40px;
     background-color: rgb(237, 236, 236);
-    /* background-color: rgb(213, 213, 213); */
+
     border: 1px solid black;
     border-radius: 10px;
     margin: 10px;
@@ -276,7 +276,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 10px;
     margin: 10px;
     cursor:pointer;
-    color: rgb(3, 93, 3);
+    color: rgb(17, 208, 45);
     background-color: rgb(213, 252, 213);
 }
 #comp:hover{
@@ -296,7 +296,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #done:hover{
     background-color: rgb(250, 223, 223);
 }
-#done:active{
+#done::after{
     background-color: rgb(102, 5, 102);
     color: white;
 }
@@ -445,4 +445,99 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .status-btn.done:hover{
     background-color: rgb(250, 223, 223);
+}
+.active-btn-not {
+    background-color: #333333 !important;
+    color: white !important;
+}
+.active-btn-all{
+    color: white !important;
+    background-color: black !important;
+}
+.active-btn-in{
+    color: white !important;
+    background-color: #1159f4 !important;
+}
+.active-btn-comp{
+    background-color: rgb(17, 208, 45) !important;
+    color: white !important;
+}
+.active-btn-done{
+    background-color: rgb(102, 5, 102) !important;
+    color: white !important;
+}
+#empty{
+    width: 920px;
+    height: 250px;
+    /* background-color: red; */
+    border-radius: 10px;
+    padding: 40px;
+    margin-top:15px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 8px 30px rgba(17, 89, 244, 0.15);
+    gap: 10px;
+}
+#empty i{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 20px;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+}
+#empty h3{
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+}
+#empty p{
+    font-size: 15px;
+    color: #878787;
+    font-weight: 350;
+}
+#stats{
+    width: 920px; 
+    height: 80px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 80px 0px 80px;
+    box-shadow: 0px 8px 30px rgba(17, 89, 244, 0.15);
+    padding: 40px;
+    margin-top:15px;
+    border-radius: 15px;
+}
+.stat-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    /* background-color: blue; */
+}
+.stat-card h3{
+    font-size:22px ;
+    /* background-color: blue; */
+}
+.stat-card p{
+    font-size: 14px;
+}
+#stat-not-started{
+    color: #333333;
+}
+#stat-progress{
+    color:#1159f4 ;
+}
+#stat-completed{
+    color: rgb(17, 208, 45);
+}
+#stat-done{
+    color: rgb(102, 5, 102)
 }
