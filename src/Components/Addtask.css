@@ -519,12 +519,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
-    /* background-color: blue; */
 }
 .stat-card h3{
     font-size:22px ;
-    /* background-color: blue; */
 }
 .stat-card p{
     font-size: 14px;

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import './AddTask.css'
 import 'remixicon/fonts/remixicon.css'
 import { CiFilter } from "react-icons/ci";
@@ -10,7 +10,13 @@ import { IoCalendarClearOutline } from "react-icons/io5";
 import { GoTasklist } from "react-icons/go";
 const AddTask = () => {
   const [status , setStatus] = useState('all')
-  const [task , setTask] = useState([])
+  const [task , setTask] = useState(()=>{
+    const  saved = localStorage.getItem('task')
+    return saved ? JSON.parse(saved):[]
+  })
+  useEffect(()=>{
+    localStorage.setItem('task' , JSON.stringify(task))
+  },[task])
   const [formData , setFormData] = useState({
     title : '',
     desc : '',
@@ -75,7 +81,7 @@ const AddTask = () => {
             <p>Organize and track your tasks efficiently</p>
           </div>
         </div>
-        {! show && <button id='add-task' onClick={handleShow}>  <i class="ri-add-large-fill"></i> Add new task</button>}
+        {! show && <button id='add-task' onClick={handleShow}>  <i className="ri-add-large-fill"></i> Add new task</button>}
         <div id='form-wrapper'>
         {show && 
         <form onSubmit={handleSubmit}
@@ -127,7 +133,7 @@ const AddTask = () => {
       </div>
       {filterTask.map((t)=>(
         
-        <div id='task-show'>
+        <div id='task-show' key={t.id}>
           <div>
           <h3>{t.title}</h3>
           <p className='tDesc'>{t.desc}</p>
@@ -148,6 +154,7 @@ const AddTask = () => {
           <p>No task with the status "{status}"</p>
         </div>
       )}
+      
       <div id='stats'>
         <div className='stat-card'>
           <h3>{task.length}</h3>
